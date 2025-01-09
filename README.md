@@ -60,6 +60,12 @@ sudo dnf upgrade @multimedia --setopt="install_weak_deps=False" --exclude=Packag
 sudo dnf -v group install 'Sound and Video' # Installs useful Sound and Video complement packages.
 ````
 
+### Bluetooth Headset proprietary codecs
+* Install this to get [proper support](https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/136) for bluetooth headsets that support aptx.
+```
+sudo dnf install -y pipewire-codec-aptx
+```
+
 ## H/W Video Acceleration
 * Helps decrease load on the CPU when watching videos online by alloting the rendering to the dGPU/iGPU. Quite helpful in increasing battery backup on laptops.
 
