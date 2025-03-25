@@ -1,10 +1,12 @@
  # Fedora 41 Post Install Guide
 Things to do after installing Fedora 41
 
-## RPM Fusion
+## RPM Fusion & Terra
 * Fedora has disabled the repositories for a lot of free and non-free .rpm packages by default. Follow this if you want to use non-free software like Steam, Discord and some multimedia codecs etc. As a general rule of thumb it is advised to do this to get access to many mainstream useful programs.
 * If you forgot to enable third party repositories during the initial setup window, enable them by pasting the following into the terminal: 
 * `sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
+* For Terra
+* `sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release`
 * also while you're at it, install app-stream metadata by
 * `sudo dnf group upgrade core`
 * `sudo dnf4 group update core`
