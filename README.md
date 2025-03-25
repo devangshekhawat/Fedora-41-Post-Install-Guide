@@ -1,6 +1,33 @@
  # Fedora 41 Post Install Guide
 Things to do after installing Fedora 41
 
+## 1. Increase DNF Speed on Fedora
+
+```
+sudo nano /etc/dnf/dnf.conf
+```
+Please note that do not remove anything but you need to make line additions to this file... by adding the following lines BELOW (not above) in the configuration:
+
+```
+# see `man dnf.conf` for defaults and possible options
+
+[main]
+gpgcheck=True
+installonly_limit=3
+fastestmirror=True
+clean_requirements_on_remove=True
+max_parallel_downloads=10
+```
+
+## 2. Set a reasonably bigger GRUB timeout in order to not get dual booted into Windows (optional)
+
+```
+sudo gedit /etc/default/grub
+```
+
+
+
+
 ## RPM Fusion
 * Fedora has disabled the repositories for a lot of free and non-free .rpm packages by default. Follow this if you want to use non-free software like Steam, Discord and some multimedia codecs etc. As a general rule of thumb it is advised to do this to get access to many mainstream useful programs.
 * If you forgot to enable third party repositories during the initial setup window, enable them by pasting the following into the terminal: 
