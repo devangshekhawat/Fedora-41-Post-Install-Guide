@@ -29,7 +29,10 @@ sudo fwupdmgr update
 
 ## NVIDIA Drivers
 * Only follow this if you have a NVIDIA gpu. Also, don't follow this if you have a gpu which has dropped support for newer driver releases i.e. anything earlier than nvidia GT/GTX 600, 700, 800, 900, 1000, 1600 and RTX 2000, 3000, 4000 series. Fedora comes preinstalled with NOUVEAU drivers which may or may not work better on those remaining older GPUs. This should be followed by Desktop and Laptop users alike.
-* Disable Secure Boot.
+* `sudo dnf install kmodtool akmods mokutil openssl` #To auto sign kernel modules
+* Reboot
+* `sudo mokutil --import /etc/pki/akmods/certs/public_key.der` #Initiate key enrollment. You'll be asked to create a password--it can be anything, you'll only use it once.
+* Reboot. The MOK Manager will appear. Select "Enroll MOK" and enter the password you just created. Then "Continue boot"
 * `sudo dnf update` #To make sure you're on the latest kernel and then reboot.
 * Enable RPM Fusion Nvidia non-free repository in the app store and install it from there,
 * or alternatively
