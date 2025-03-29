@@ -19,8 +19,7 @@ I hope you find the guide helpful!
 
 ## Update 
 * Go into the software center and click on update. Alternatively, you can do:
-* `sudo dnf -y update`
-* Reboot
+* `sudo dnf -y upgrade && sudo dnf autoremove && sudo dnf clean all
 
 ## Firmware
 * If your system supports firmware update delivery through lvfs, update your device firmware by:
@@ -30,6 +29,14 @@ sudo fwupdmgr get-devices # Lists devices with available updates.
 sudo fwupdmgr get-updates # Fetches list of available updates.
 sudo fwupdmgr update
 ```
+## AppImage
+
+For Appimage support install fuse
+
+`sudo dnf in fuse`
+
+You can install AppImage manager like [pho](https://github.com/zyrouge/pho) or [Gearlever](https://flathub.org/apps/it.mijorus.gearlever) if you like Flatpak `flatpak install it.mijorus.gearlever`
+
 ## Flatpak
 * Fedora doesn't include all non-free flatpaks by default. The command below enables access to all the flathub flatpaks. Particularly useful for users of Fedora KDE and other spins since they do not get the "Enable Third Party Repositories" option on initial boot.
 * `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
@@ -118,6 +125,14 @@ DNSOverTLS=yes
 ## Set UTC Time
 * Used to counter time inconsistencies in dual boot systems
 * `sudo timedatectl set-local-rtc '0'`
+
+## Custom chrony conf
+
+For more secure chrony — time synchronization server you can use next config
+
+`sudo curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf -o /etc/chrony.conf`
+
+Command above will modify your chrony to use it from default from GrapheneOS. GrapheneOS is secure fork AOSP
 
 ## Optimizations
 * The tips below can allow you to squeeze out a little bit more performance from your system. 
