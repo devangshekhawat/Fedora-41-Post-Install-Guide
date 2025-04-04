@@ -30,6 +30,14 @@ sudo fwupdmgr get-devices # Lists devices with available updates.
 sudo fwupdmgr get-updates # Fetches list of available updates.
 sudo fwupdmgr update
 ```
+## AppImage
+
+For Appimage support install fuse
+
+`sudo dnf in fuse`
+
+You can install AppImage manager like [pho](https://github.com/zyrouge/pho). If you use Flatpak, you can install [Gearlever](https://flathub.org/apps/it.mijorus.gearlever) `flatpak install it.mijorus.gearlever`
+
 ## Flatpak
 * Fedora doesn't include all non-free flatpaks by default. The command below enables access to all the flathub flatpaks. Particularly useful for users of Fedora KDE and other spins since they do not get the "Enable Third Party Repositories" option on initial boot.
 * `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
